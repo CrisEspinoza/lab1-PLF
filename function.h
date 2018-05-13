@@ -15,3 +15,6 @@ int contarLetras(char* palabra, int pc);
 void escribirEnArchivo(FILE *archivoSalida, int respuesta, char* palabra, char caracter);
 int validarEntradas(int argc, char** argv);
 int existeArchivo(char* nombre);
+int finalDePalabra(char *palabra,int pc);
+int reconocerPalabraReservada(char *palabra, int pc);
+int verificarCaracter( char caracter ) ;
