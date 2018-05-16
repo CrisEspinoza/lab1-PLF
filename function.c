@@ -202,10 +202,10 @@ int finalDePalabra(char *palabra,int pc)
     int cont = pc;
     while(cont <= strlen(palabra))
     {
-        printf("%c - %d \n", palabra[cont] ,cont);
+        //printf("%c - %d \n", palabra[cont] ,cont);
         if( verificarCaracter (palabra[cont]) == 1 || palabra[cont] == ' ' || operadoresYSimbolos(palabra[cont]) == 1 ) 
         {
-            printf("Me sacaron\n");
+            //printf("Me sacaron\n");
             return cont;
         }
         cont++;
@@ -216,15 +216,15 @@ int finalDePalabra(char *palabra,int pc)
 
 int reconocerPalabraReservada(char *palabra, int pc)
 {
-    printf("%d\n", pc);
+    //printf("%d\n", pc);
     int final = finalDePalabra(palabra,pc);
-    printf("%d\n", pc);
+    //printf("%d\n", pc);
     char palabraaux[100];
     if(final != -1)
     {
-        printf("Inicio : %d - Final: %d \n", pc , final);
+        //printf("Inicio : %d - Final: %d \n", pc , final);
         cortar(palabraaux,palabra,pc,final);
-        printf("%s\n",palabraaux );
+        //printf("%s\n",palabraaux );
         if(palabraReservada(palabraaux))
         {
             return final;
@@ -241,7 +241,7 @@ int revisar (char* palabra,int pc, int* respuesta,FILE* archivoSalida)
     maximo = reconocerPalabraReservada(palabra,pc);
     if (auxiliar < maximo )  
     {
-        printf("El valor del cont es: %d \n",maximo);
+        //printf("El valor del cont es: %d \n",maximo);
         *respuesta = 1;
         cortar(palabraaux,palabra,pc,maximo);
         escribirEnArchivo(archivoSalida,*respuesta,palabraaux,'n');
