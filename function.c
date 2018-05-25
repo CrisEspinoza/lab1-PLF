@@ -4,6 +4,9 @@
 
 #include "function.h"
 
+//Definimos variables globales 
+int auxiliar;
+
 void cortar(char* palabraNueva,char* palaraAntigua,int inicio,int final)
 {
     int i=0;
@@ -47,6 +50,38 @@ int operadoresYSimbolos(char palabra)
         default:
             return 0;
         }
+}
+
+int operadorCompuesto(char* palabra, int pc )
+{
+    if (palabra[pc] == ':' && (pc+1) < strlen(palabra) )
+    {
+        //printf("Estoy aca : pc : %d - largoPalabra: %d \n", pc , strlen(palabra));
+        if (palabra[pc+1] == '=')
+        {
+            //printf("Es compuesto \n");
+            return 1;
+        }
+    }
+    if (palabra[pc] == '<' && (pc+1) < strlen(palabra) )
+    {
+        //printf("Estoy aca : pc : %d - largoPalabra: %d \n", pc , strlen(palabra));
+        if (palabra[pc+1] == '=')
+        {
+            //printf("Es compuesto \n");
+            return 1;
+        }
+    }
+    if (palabra[pc] == '>' && (pc+1) < strlen(palabra) )
+    {
+        //printf("Estoy aca : pc : %d - largoPalabra: %d \n", pc , strlen(palabra));
+        if (palabra[pc+1] == '=')
+        {
+            //printf("Es compuesto \n");
+            return 1;
+        }
+    }
+    return 0;
 }
 
 int palabraReservada(char* palabra)
@@ -235,7 +270,7 @@ int reconocerPalabraReservada(char *palabra, int pc)
 
 int revisar (char* palabra,int pc, int* respuesta,FILE* archivoSalida)
 {
-    int auxiliar = pc;
+    auxiliar = pc;
     int maximo = 0;
     char palabraaux[100];
     maximo = reconocerPalabraReservada(palabra,pc);
@@ -247,9 +282,16 @@ int revisar (char* palabra,int pc, int* respuesta,FILE* archivoSalida)
         escribirEnArchivo(archivoSalida,*respuesta,palabraaux,'n');
         return maximo;
     }
+    if (operadorCompuesto(palabra,pc) == 1)
+    {
+        //printf("Entre aca \n");
+        *respuesta = 2;
+        escribirEnArchivo(archivoSalida,*respuesta,palabra,'n');
+        return (auxiliar+2);
+    }
     if (operadoresYSimbolos(palabra[pc]) == 1)
     {
-        *respuesta = 2;
+        *respuesta = 3;
         escribirEnArchivo(archivoSalida,*respuesta,"nada",palabra[pc]);
         return (auxiliar+1);
     }       
@@ -257,7 +299,7 @@ int revisar (char* palabra,int pc, int* respuesta,FILE* archivoSalida)
     maximo = contarNumeros(palabra,pc);
     if (auxiliar < maximo)
     {
-        *respuesta = 3;
+        *respuesta = 4;
         escribirEnArchivo(archivoSalida,*respuesta,palabra,'n');
         //printf("Entre aca\n");
         auxiliar = maximo;   
@@ -266,7 +308,7 @@ int revisar (char* palabra,int pc, int* respuesta,FILE* archivoSalida)
     maximo = contarLetras(palabra,pc);
     if (auxiliar < maximo)
     {
-        *respuesta = 4;
+        *respuesta = 5;
         escribirEnArchivo(archivoSalida,*respuesta,palabra,'n');
         //printf("Entre aca 1 \n");
         auxiliar = maximo;
@@ -289,12 +331,15 @@ void escribirEnArchivo(FILE *archivoSalida, int respuesta,char* palabra,char car
             fprintf(archivoSalida,"%s\n",palabra);
             break;
         case 2:
-            fprintf(archivoSalida,"%c\n",caracter);
+            fprintf(archivoSalida,"%c%c\n",palabra[auxiliar],palabra[auxiliar+1]);
             break;
         case 3:
-            fprintf(archivoSalida,"NUMERO\n");
+            fprintf(archivoSalida,"%c\n",caracter);
             break;
         case 4:
+            fprintf(archivoSalida,"NUMERO\n");
+            break;
+        case 5:
             fprintf(archivoSalida,"IDENTIFICADOR\n");
             break;
         default:

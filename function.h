@@ -18,3 +18,4 @@ int existeArchivo(char* nombre);
 int finalDePalabra(char *palabra,int pc);
 int reconocerPalabraReservada(char *palabra, int pc);
 int verificarCaracter( char caracter ) ;
+int operadorCompuesto(char* palabra, int pc );
