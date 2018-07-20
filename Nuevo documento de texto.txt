@@ -1,0 +1,2 @@
+: - # - odd - expresion - instruccion (Componte lexico)
+listo - listo - listo 

@@ -37,6 +37,8 @@ int operadoresYSimbolos(char palabra)
             return 1;
         case '<':
             return 1;
+        case '#':
+            return 1;
         case '=':
             return 1;
         case '+':
@@ -92,10 +94,10 @@ int palabraReservada(char* palabra)
 		return 1;
 	if(strcmp(palabra,"procedure")== 0)
 		return 1;
-	if(strcmp(palabra,"instruccion")== 0)
+	/*if(strcmp(palabra,"instruccion")== 0)
 		return 1;
 	if(strcmp(palabra,"expresion")== 0)
-		return 1;
+		return 1;*/
 	if(strcmp(palabra,"call")== 0)
 		return 1;
 	if(strcmp(palabra,"begin")== 0)
@@ -110,7 +112,7 @@ int palabraReservada(char* palabra)
 		return 1;
 	if(strcmp(palabra,"do")== 0)
 		return 1;
-	if(strcmp(palabra,"add")== 0)
+	if(strcmp(palabra,"odd")== 0)
 		return 1;
 	return 0;
 }
@@ -203,12 +205,16 @@ int contarNumeros(char* palabra, int pc)
             cont++;
             i++;
         }
-        else if (operadoresYSimbolos(palabra[i]))
+        /*else if (operadoresYSimbolos(palabra[i]))
         {
             return pc+cont;
         }
+        else if ( letra (palabra[i]) == 0 )
+        {
+            return pc+cont;
+        } */      
         else
-            return pc;
+            return pc+cont;
     }
     if (palabra[i] == '\0')
         return pc + cont;
@@ -357,7 +363,7 @@ void analizadoLexico(char* nombre, char* nombreS)
     int respuesta = 0;
     while (!feof(archivo))
     {
-		fscanf(archivo,"%s\n",&palabra);   
+		fscanf(archivo,"%s\n",palabra);   
         //printf("Frase analizar: %s - largo de la palabra %d \n", palabra , strlen(palabra) );
         while ( pc < strlen(palabra) ) 
         {
