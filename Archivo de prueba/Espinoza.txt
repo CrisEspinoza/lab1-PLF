@@ -1,0 +1,5 @@
+Hola me llamo cristian, estamos creando un archivo de prueba para el laboratorio 
+numero 1 de la asignatura de procesamiento de lenguaje formales, el cual el objetivo
+es crear un analizador léxico.
+1+1=2
+numero+numero=numero

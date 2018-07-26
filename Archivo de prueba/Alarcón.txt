@@ -1,0 +1,2 @@
+HOLA 1231 Hol21a . const , = ; var , ; procedure  call begin end ; then do while if + - + - * / ( )  odd  = # <  >
+termino bloque instruccion <=

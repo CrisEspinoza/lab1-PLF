@@ -1,0 +1,9 @@
+bloque 5.
+int funcion division(int primerNumero, int segundoNumero)
+	int resultado;
+	if (segundoNumero = 0)
+		print( No divisible );
+		return NULL;
+	else
+		resultado = primerNumero/segundoNumero;
+		return resultado;

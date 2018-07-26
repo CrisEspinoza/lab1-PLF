@@ -1,0 +1,7 @@
+Manuel:Hoy sera un gran dia.
+Eduardo:Esperemos que si.
+Manuel:En todo caso la entrega es el dia 4 de mayo.
+Eduardo:Entonces debemos estar tranquilos.
+Manuel:Si salgamos un rato.
+Eduardo:Bueno a las 20:00 hrs puedo.
+Manuel:Ok.  

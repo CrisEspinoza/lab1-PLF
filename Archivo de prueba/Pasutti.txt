@@ -1,0 +1,10 @@
+Archivo de prueba
+Este es un archivo de prueba, 
+tiene como objetivo probar (si es posible) 
+1 o mas casos de prueba para el laboratorio.
+23 < 45
+10 = 10
+ruta/archivo; 10 < 11 <= 12 >= 6 # 8 * 3600 :=
+
+
+  

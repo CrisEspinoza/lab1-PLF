@@ -1,0 +1,7 @@
+sistema operativo windows lexico.c antes de las 23:59 C. primer semestre, escribir un programa, 
+dado un archivo de los componentes lexicos.
+
+errores:
+
+C:\> lexico.exe archivo
+Error: Falta parametros.

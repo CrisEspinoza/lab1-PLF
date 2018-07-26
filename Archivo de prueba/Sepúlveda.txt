@@ -1,0 +1,13 @@
+Fórmula (expresión)
+En un sistema formal, una fórmula bien formada, también llamada expresión bien formada, y a menudo abreviada fbf o EBF, 
+es una cadena de caracteres o palabra generada según una gramática formal a partir de un alfabeto dado. 
+
+Índice
+1	En Matemáticas
+2	En ciencias naturales
+3	En Informática
+4	En Ciencias Sociales
+5	Véase también
+6	Referencias
+7	Enlaces externos
+end

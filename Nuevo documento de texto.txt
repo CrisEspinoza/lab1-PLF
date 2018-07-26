@@ -1,2 +1,4 @@
 : - # - odd - expresion - instruccion (Componte lexico)
-listo - listo - listo 
+listo - listo - listo - listo - listo 
+
+Revisar con la profesora.
